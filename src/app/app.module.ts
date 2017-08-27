@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map.component';
@@ -10,7 +13,11 @@ import { MapComponent } from './map.component';
     MapComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCB1wszn_GgcWqN7-CdjFMGubnf1GWwtew'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
-
+    title: string = 'map selector';
+    lat: number = 51.678418;
+    lng: number = 7.809007;
 }
