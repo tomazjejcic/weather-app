@@ -1,13 +1,17 @@
-<app-modal #modal1>
-        <div class="app-modal-header">
-          modal title
+<div class="modal fade modalDialog" 
+    tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+    [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="app-modal-header">
+                modal title
+              </div>
+              <div>
+                modal body
+              </div>
+              <div>
+                <button type="button" class="btn" (click)="hide()">Close</button>
+              </div>
         </div>
-        <div class="app-modal-body">
-          modal body
-        </div>
-        <div class="app-modal-footer">
-          
-          <button type="button" class="btn" (click)="modal1.hide()">Close</button>
-      
-        </div>
-</app-modal>
+    </div>
+</div>

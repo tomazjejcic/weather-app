@@ -1,16 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalComponent } from '../modal/modal.component';
 
 @Component({
     selector: 'app-location-modal',
     templateUrl: './location-modal.component.html',
-    styles: []
+    styleUrls: ['./location-modal.component.css']
 })
 export class LocationModalComponent implements OnInit {
 
-    // public visible = false;
-
-    @ViewChild('modal1') modal: ModalComponent;
+    public visible = false;
+    private visibleAnimate = false;
 
     constructor(
 
@@ -23,15 +21,15 @@ export class LocationModalComponent implements OnInit {
     }
 
     public show(): void {
-        this.modal.show();
         console.log('Modal shown');
-        // this.visible = true;
+        this.visible = true;
+        setTimeout(() => this.visibleAnimate = true, 100);
     }
 
     public hide(): void {
-        this.modal.hide();
         console.log('Modal hidden');
-        // this.visible = false;
+        this.visible = false;
+        setTimeout(() => this.visible = false, 300);
     }
 
 }
