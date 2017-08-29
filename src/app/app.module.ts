@@ -6,11 +6,15 @@ import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map.component';
+import { LocationModalComponent } from './location-modal/location-modal.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    LocationModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

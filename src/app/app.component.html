@@ -7,5 +7,14 @@ https://console.developers.google.com/apis/credentials/key/79?authuser=1&project
   </h1>
 </div>
 
+<button 
+  type="button"
+  class="btn" 
+  (click)="showModal()">
+  Open Modal
+</button>
+
+<app-location-modal #locationModal></app-location-modal>
+
 <app-map-component>
 </app-map-component>
