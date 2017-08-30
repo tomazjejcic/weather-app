@@ -7,6 +7,10 @@ https://console.developers.google.com/apis/credentials/key/79?authuser=1&project
   </h1>
 </div>
 
+<app-weather-component
+    [location]="locationObject">
+</app-weather-component>
+
 <!-- <button 
   type="button"
   class="btn" 
@@ -18,5 +22,6 @@ https://console.developers.google.com/apis/credentials/key/79?authuser=1&project
 </app-location-modal> -->
 
 <app-map-component
-    [userLocation]="locationObject">
+    [userLocation]="locationObject"
+    (changeMarkerLocation)="changeMarkerLocation($event)">
 </app-map-component>

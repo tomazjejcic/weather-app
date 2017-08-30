@@ -1,0 +1,9 @@
+<div class="container">
+    weather component
+    <div *ngIf="weatherData && weatherData.name">
+        <p>{{ weatherData.name }}</p>
+        <p>{{ weatherData.main.temp }}</p>
+        <p>{{ weatherData.weather[0].main }}</p>
+        <img src="{{ weatherData.weather[0].icon }}">
+    </div>
+</div>

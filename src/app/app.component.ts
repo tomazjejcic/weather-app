@@ -22,70 +22,62 @@ export class AppComponent {
 
     ) {
 
-      this.confirmLocationSupport();
+        this.confirmLocationSupport();
     }
 
     confirmLocationSupport() {
 
-      if (navigator.geolocation) {
-          // geolocation is supported
-          this.getLocation();
-      } else {
-          // geolocation is not supported for this browser
-          console.log('geolocation is not supported')
-      }
+        if (navigator.geolocation) {
+            // geolocation is supported
+            this.getLocation();
+        } else {
+            // geolocation is not supported for this browser
+            console.log('geolocation is not supported')
+        }
     }
 
     getLocation() {
 
         let startPos;
-        // const nudge = document.getElementById('nudge');
-
-        // const showNudgeBanner = function() {
-        //     nudge.style.display = 'block';
-        // };
-
-        // const hideNudgeBanner = function() {
-        //     nudge.style.display = 'none';
-        // };
-
-        // const nudgeTimeoutId = setTimeout(showNudgeBanner, 5000);
-
 
         const geoSuccess = function(position) {
 
             console.log(' geo POSITTION', position);
             startPos = position;
-            locationAllowed();
-            // hideNudgeBanner();
-            // We have the location, don't display banner
-            // clearTimeout(nudgeTimeoutId);
-
-            // document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-            // document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+            defineUserLocation();
         };
+
         const geoError = function(error) {
 
             console.log('geoError: ', error);
             switch (error.code) {
             case error.TIMEOUT:
                 // The user didn't accept the callout
-                // showNudgeBanner();
                 break;
             }
         };
 
-        const locationAllowed = (() => {
+        const defineUserLocation = (() => {
 
-            const allowed = {
+            const userLocation = {
                 lat: startPos.coords.latitude,
                 lng: startPos.coords.longitude,
-                zoom: 2
+                zoom: 8
             }
-            this.locationObject = allowed
+            this.locationObject = userLocation
         })
 
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+    }
+
+    changeMarkerLocation(event) {
+
+        const newMarkerLocation = {
+          lat: event.lat,
+          lng: event.lng,
+          zoom: event.zoom
+        }
+        this.locationObject = newMarkerLocation;
     }
 
     // TODO: future search location
