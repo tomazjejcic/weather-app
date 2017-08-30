@@ -8,7 +8,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class LocationModalComponent implements OnInit {
 
     public visible = false;
-    private visibleAnimate = false;
+    public visibleAnimate = false;
 
     constructor(
 

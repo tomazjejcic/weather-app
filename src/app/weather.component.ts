@@ -12,11 +12,9 @@ export class WeatherComponent implements OnChanges {
     @Input() location: any;
 
     // Variables
-    private results
-    private lat;
-    private lng;
-
-    private weatherData;
+    lat;
+    lng;
+    weatherData;
 
     constructor(
         private http: HttpClient

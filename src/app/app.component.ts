@@ -11,8 +11,8 @@ export class AppComponent {
     @ViewChild('locationModal') locationModal: LocationModalComponent;
 
     // Variables
-    private title = 'Weather App';
-    private locationObject = {
+    title = 'Weather App';
+    locationObject = {
         lat: null,
         lng: null,
         zoom: 2
