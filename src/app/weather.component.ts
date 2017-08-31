@@ -32,7 +32,6 @@ export class WeatherComponent implements OnChanges {
 
         if (this.location && changes.location) {
 
-            console.log('NEW WEATHER RESULTS', this.location);
             this.lat = this.location.lat;
             this.lng = this.location.lng;
 
@@ -67,7 +66,7 @@ export class WeatherComponent implements OnChanges {
     }
 
     fromCelsiusToFarenheit(celsius) {
-
-        return celsius * 1.8 + 32;
+        const farenheit = Math.round(celsius * 1.8 + 32);
+        return farenheit;
     }
 }

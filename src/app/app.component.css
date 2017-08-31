@@ -66,3 +66,41 @@ button + button {
     border: solid 1px #CDCDCD;
     border-radius: 2px;
 }
+
+@media(min-width:481px) {
+
+    .info-container .info-header .title {
+        font-size: 2.5em;
+    }
+
+    .info-container .info-header .buttons {
+        margin-right: 20px;
+    }
+
+    .info-container .info-header .icon-button {
+        font-size: 1.5em;
+        width: 40px;
+        height: 40px;
+        box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    button + button {
+        margin-left: 15px;
+    }
+
+    .map-container {
+        margin: 20px;
+        box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media(min-width:768px) {
+    
+    .info-container {
+        flex: 2;
+    }
+    
+    .map-container {
+        flex: 3;
+    }
+}

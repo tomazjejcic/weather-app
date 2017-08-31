@@ -36,9 +36,6 @@ export class MapComponent implements OnChanges {
 
     mapClicked(event) {
 
-        console.log('\n Marker Location Changed', this.userLocation);
-        console.log('lat', event.coords.lat);
-        console.log('lng', event.coords.lng);
         this.lat = event.coords.lat;
         this.lng = event.coords.lng
 

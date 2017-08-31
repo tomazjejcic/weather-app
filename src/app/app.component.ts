@@ -44,7 +44,6 @@ export class AppComponent {
 
         const geoSuccess = function(position) {
 
-            console.log(' geo POSITTION', position);
             startPos = position;
             defineUserLocation();
         };

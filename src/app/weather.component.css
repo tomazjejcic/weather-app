@@ -25,3 +25,23 @@
     border-radius: 2px;
     margin: 10px 10px 0px 5px;
 }
+
+@media(min-width:481px) {
+
+    .container .weather-text {
+        font-size: 1.5em;
+        margin: 10px 10px 0px 20px;
+        box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    .container .weather-icon {
+        margin: 10px 20px 0px 10px;
+        box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .container .weather-icon .icon {
+        width: 100px;
+        height: 100px;
+    }
+
+}

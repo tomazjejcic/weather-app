@@ -4,3 +4,11 @@ body {
     height: 100vh;
     margin: 0px;
 }
+
+@media(min-width:768px) {
+
+    body {
+        max-width: 70%;
+        margin: auto;
+    }    
+}
