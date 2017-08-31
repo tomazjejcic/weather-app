@@ -15,7 +15,6 @@ export class MapComponent implements OnChanges {
     @Output() changeMarkerLocation = new EventEmitter();
 
     // Variables
-    title = 'map selector';
     lat = null;
     lng = null;
     zoom = 2;

@@ -11,7 +11,7 @@ export class AppComponent {
     @ViewChild('locationModal') locationModal: LocationModalComponent;
 
     // Variables
-    title = 'Weather App';
+    locationName;
     userLocation;
     getFarenheit = false;
     locationObject = {
@@ -81,6 +81,11 @@ export class AppComponent {
           zoom: event.zoom
         }
         this.locationObject = newMarkerLocation;
+    }
+
+    getLocationName(event) {
+
+        this.locationName = event;
     }
 
     setUserLocation() {

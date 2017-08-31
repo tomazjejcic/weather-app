@@ -1,10 +1,10 @@
 <div class="container">
-    weather component
-    <div>
-        <p>{{ locationName }}</p>
-        <p *ngIf="farenheit">{{ temperatureFarenheit }}<span> °F</span></p>
-        <p *ngIf="!farenheit">{{ temperatureCelsius }}<span> °C</span></p>
-        <p>{{ weatherDescription }}</p>
+    <div class="weather-text">
+        <div *ngIf="farenheit && temperatureFarenheit">{{ temperatureFarenheit }}<span> °F</span></div>
+        <div *ngIf="!farenheit && temperatureCelsius">{{ temperatureCelsius }}<span> °C</span></div>
+        <div>{{ weatherDescription }}</div>
+    </div>
+    <div class="weather-icon">
         <img src="{{ weatherIcon }}">
     </div>
 </div>

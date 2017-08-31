@@ -1,37 +1,49 @@
 <!-- restrict the google maps api key here:
 https://console.developers.google.com/apis/credentials/key/79?authuser=1&project=weather-app-1503815962397&pli=1 -->
+<div class="container">
 
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
-  <div>
-    <button (click)="switchTemperatureScale()">
-      <span *ngIf="!getFarenheit">°F</span>
-      <span *ngIf="getFarenheit">°C</span>
-    </button>
-    <button (click)="setUserLocation()">
-        Location
-    </button>
-  </div>
-</div>
+  <div class="info-container">
 
-<app-weather-component
-    [location]="locationObject"
-    [farenheit]="getFarenheit">
-</app-weather-component>
+    <div class="info-header">
+        <div class="title">
+          <span> What's the weather like in <br/><span class="location-name">{{ locationName }}</span></span>
+        </div>
+        <div class="buttons">
+          <button class="icon-button" (click)="switchTemperatureScale()">
+            <span *ngIf="!getFarenheit">°F</span>
+            <span *ngIf="getFarenheit">°C</span>
+          </button>
+          <button class="icon-button" (click)="setUserLocation()">
+              <i class="fa fa-location-arrow" aria-hidden="true"></i>
+          </button>
+        </div>
+    </div>
 
-<!-- <button 
-  type="button"
-  class="btn" 
-  (click)="showModal()">
-  Open Modal
-</button> -->
+    <div class="info-content">
+      <app-weather-component
+          [location]="locationObject"
+          [farenheit]="getFarenheit"
+          (locationName)="getLocationName($event)">
+      </app-weather-component>
+    </div>
 
-<!-- <app-location-modal #locationModal>
-</app-location-modal> -->
+  </div> <!-- /info-container -->
 
-<app-map-component
-    [userLocation]="locationObject"
-    (changeMarkerLocation)="changeMarkerLocation($event)">
-</app-map-component>
+  <!-- <button 
+    type="button"
+    class="btn" 
+    (click)="showModal()">
+    Open Modal
+  </button> -->
+
+  <!-- <app-location-modal #locationModal>
+  </app-location-modal> -->
+
+  <div class="map-container">
+    <app-map-component
+        [userLocation]="locationObject"
+        (changeMarkerLocation)="changeMarkerLocation($event)">
+    </app-map-component>
+  </div> <!-- /map-container -->
+
+</div> <!-- /container -->

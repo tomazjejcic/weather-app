@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -12,10 +12,11 @@ export class WeatherComponent implements OnChanges {
     @Input() location: any;
     @Input() farenheit: boolean;
 
+    @Output() locationName = new EventEmitter();
+
     // Variables
     lat;
     lng;
-    locationName;
     weatherDescription;
     temperatureCelsius;
     temperatureFarenheit;
@@ -57,7 +58,7 @@ export class WeatherComponent implements OnChanges {
 
     resolveApiSuccess(data) {
         if (data) {
-            this.locationName = data.name;
+            this.locationName.emit(data.name);
             this.weatherDescription = data.weather[0].main
             this.temperatureCelsius = Math.round(data.main.temp);
             this.temperatureFarenheit = this.fromCelsiusToFarenheit(this.temperatureCelsius);
