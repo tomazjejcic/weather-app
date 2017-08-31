@@ -10,11 +10,16 @@ export class WeatherComponent implements OnChanges {
 
     // @Input //Bindings
     @Input() location: any;
+    @Input() farenheit: boolean;
 
     // Variables
     lat;
     lng;
-    weatherData;
+    locationName;
+    weatherDescription;
+    temperatureCelsius;
+    temperatureFarenheit;
+    weatherIcon;
 
     constructor(
         private http: HttpClient
@@ -24,7 +29,7 @@ export class WeatherComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
 
-        if (this.location) {
+        if (this.location && changes.location) {
 
             console.log('NEW WEATHER RESULTS', this.location);
             this.lat = this.location.lat;
@@ -38,14 +43,30 @@ export class WeatherComponent implements OnChanges {
 
         this.http.get(`https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${lng}`)
             .subscribe(
-                data => {
-                    const apiSuccess = data;
-                    console.log('HTTP RESULTS: ', apiSuccess);
-                    this.weatherData = apiSuccess;
+                resp => {
+                    if (!resp['error']) {
+                        const apiSuccess = resp;
+                        this.resolveApiSuccess(apiSuccess)
+                    }
                 },
                 err => {
                     console.log('Something went wrong!', err);
                 }
             );
+    }
+
+    resolveApiSuccess(data) {
+        if (data) {
+            this.locationName = data.name;
+            this.weatherDescription = data.weather[0].main
+            this.temperatureCelsius = Math.round(data.main.temp);
+            this.temperatureFarenheit = this.fromCelsiusToFarenheit(this.temperatureCelsius);
+            this.weatherIcon = data.weather[0].icon
+        }
+    }
+
+    fromCelsiusToFarenheit(celsius) {
+
+        return celsius * 1.8 + 32;
     }
 }

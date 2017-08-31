@@ -1,9 +1,10 @@
 <div class="container">
     weather component
-    <div *ngIf="weatherData && weatherData.name">
-        <p>{{ weatherData.name }}</p>
-        <p>{{ weatherData.main.temp }}</p>
-        <p>{{ weatherData.weather[0].main }}</p>
-        <img src="{{ weatherData.weather[0].icon }}">
+    <div>
+        <p>{{ locationName }}</p>
+        <p *ngIf="farenheit">{{ temperatureFarenheit }}<span> °F</span></p>
+        <p *ngIf="!farenheit">{{ temperatureCelsius }}<span> °C</span></p>
+        <p>{{ weatherDescription }}</p>
+        <img src="{{ weatherIcon }}">
     </div>
 </div>

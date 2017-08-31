@@ -5,10 +5,20 @@ https://console.developers.google.com/apis/credentials/key/79?authuser=1&project
   <h1>
     Welcome to {{title}}!!
   </h1>
+  <div>
+    <button (click)="switchTemperatureScale()">
+      <span *ngIf="!getFarenheit">°F</span>
+      <span *ngIf="getFarenheit">°C</span>
+    </button>
+    <button (click)="setUserLocation()">
+        Location
+    </button>
+  </div>
 </div>
 
 <app-weather-component
-    [location]="locationObject">
+    [location]="locationObject"
+    [farenheit]="getFarenheit">
 </app-weather-component>
 
 <!-- <button 

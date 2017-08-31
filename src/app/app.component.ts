@@ -12,6 +12,8 @@ export class AppComponent {
 
     // Variables
     title = 'Weather App';
+    userLocation;
+    getFarenheit = false;
     locationObject = {
         lat: null,
         lng: null,
@@ -59,12 +61,13 @@ export class AppComponent {
 
         const defineUserLocation = (() => {
 
-            const userLocation = {
+            const definedUserLocation = {
                 lat: startPos.coords.latitude,
                 lng: startPos.coords.longitude,
                 zoom: 8
             }
-            this.locationObject = userLocation
+            this.userLocation = definedUserLocation
+            this.locationObject = definedUserLocation
         })
 
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
@@ -78,6 +81,14 @@ export class AppComponent {
           zoom: event.zoom
         }
         this.locationObject = newMarkerLocation;
+    }
+
+    setUserLocation() {
+        this.locationObject = this.userLocation;
+    }
+
+    switchTemperatureScale() {
+        this.getFarenheit ? this.getFarenheit = false : this.getFarenheit = true;
     }
 
     // TODO: future search location
