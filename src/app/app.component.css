@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 .container {
     height: 100vh;
     display: flex;
@@ -45,9 +47,8 @@
     color: #4C417D;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 1em;
-    width: 30px;
+    font-size: 0.8em;
+    width: 40px;
     height: 30px;
     border: solid 1px #A08BFE;
     border-radius: 2px; 
@@ -65,7 +66,7 @@ button + button {
 .map-container {
     flex: 2;
     margin: 10px;
-    border: solid 1px #CDCDCD;
+    /* border: solid 1px #CDCDCD; */
     /* border-radius: 2px; */
 }
 
