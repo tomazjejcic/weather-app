@@ -66,8 +66,8 @@ button + button {
 .map-container {
     flex: 2;
     margin: 10px;
-    /* border: solid 1px #CDCDCD; */
-    /* border-radius: 2px; */
+    border: solid 1px #CDCDCD;
+    border-radius: 2px;
 }
 
 @media(min-width:481px) {
